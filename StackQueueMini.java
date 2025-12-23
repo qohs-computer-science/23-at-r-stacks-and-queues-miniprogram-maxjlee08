@@ -40,17 +40,19 @@ class StackQueueMini {
 
     Queue<Integer> tempQueue = new LinkedList<>();
     int size = queue.size();
-    for(int i = 0; i < size; i++) {
-      if(queue.peek() % 2 == 0) {
-        tempQueue.add(queue.remove());
+    for(int i = 0; i < size; i++) 
+      {
+        int value = queue.remove();
+      if(value % 2 == 0) {
+        queue.add(value);
       } else {
-        queue.add(queue.remove());
+        tempQueue.add(value);
       }
-
+    }
       while(!tempQueue.isEmpty()) {
         queue.add(tempQueue.remove());
       }
-    }
+    
       System.out.println("Modified Queue Front " + queue + " back");
   }
 
